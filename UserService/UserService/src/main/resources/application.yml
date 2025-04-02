@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: userservice
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/userdb?createDatabaseIfNotExist=true
+    username: root
+    password: Admin@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update  # Fixed indentation here
+    show-sql: true  # Fixed indentation here
+feign:
+ client:
+  config:
+    default:
+     connect-timeout: 5000   # Timeout in ms
+     read-timeout: 5000
+     logger-level: FULL 
+server:
+  port: 2001

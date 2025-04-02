@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: asesmentservice
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/asesmentdb?createDatabaseIfNotExist=true
+    username: root
+    password: Admin@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update  # Fixed indentation here
+    show-sql: true  # Fixed indentation here
+server:
+  port: 2003

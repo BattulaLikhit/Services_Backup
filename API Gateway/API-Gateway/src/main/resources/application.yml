@@ -1,0 +1,29 @@
+server:
+  port: 8083  # API Gateway runs on port 8080
+
+spring:
+  application:
+    name: apigateway  # Service name for Eureka registration
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # Enables automatic route discovery via Eureka
+          lower-case-service-id: true  # Service IDs are in lowercase
+      routes:
+        - id: userservice
+          uri: lb://USERSERVICE
+          predicates:
+            - Path=/user/**  # Routes all "/user/**" requests to User Service
+
+        - id: orderservice
+          uri: lb://ORDERSERVICE
+          predicates:
+            - Path=/order/**  # Routes all "/order/**" requests to Order Service
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/  # Eureka Server URL
+#  instance:
+#    prefer-ip-address: true  # Use IP address instead of hostname

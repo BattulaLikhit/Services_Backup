@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: submissionservice
+server:
+  port: 2004

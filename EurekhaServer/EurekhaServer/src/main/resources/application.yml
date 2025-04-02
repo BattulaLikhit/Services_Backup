@@ -1,0 +1,15 @@
+server:
+  port: 8761  # Port for User Service
+spring:
+  application:
+    name: EurekhaServer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    preferIpAddress: true
+  server:
+    enable-self-preservation: true   #eurkaserver removes the services in case networkissues so , when its off server removes the service that dont send signal tinmely to the server
